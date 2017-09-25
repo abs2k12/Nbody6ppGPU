@@ -1377,6 +1377,10 @@ C     &                FILE='ROCHE')
 * Perform coalescence check after shrinkage.
                IF (RAD(1)+RAD(2).LT.SEP)THEN
                   COALS = .TRUE.
+*     following two lines added by Abbas 17/05/2017*
+* determine correct startype following coalesence using ktype matrix**
+                  KW1 = KTYPE(KSTAR(J1),KSTAR(J2))
+                  IF (KW1.GT.100) KW1 = KW1 - 100                  
                   GO TO 60
                ENDIF
 *     --02/28/13 9:59-lwang-end-add------------------------------------*
